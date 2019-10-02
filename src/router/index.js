@@ -22,17 +22,14 @@ import Layout from '@/layout'
   }
 **/
 //静态网页
-export const constantRouterMap = [
-  {
+export const constantRouterMap = [{
     path: '/redirect',
     component: Layout,
     hidden: true,
-    children: [
-      {
-        path: '/redirect/:path*',
-        component: () => import('@/views/redirect/index')
-      }
-    ]
+    children: [{
+      path: '/redirect/:path*',
+      component: () => import('@/views/redirect/index')
+    }]
   },
   {
     path: '/login',
@@ -44,7 +41,7 @@ export const constantRouterMap = [
     component: Layout,
     hidden: true,
     children: [{
-      path:"",
+      path: "",
       component: () => import('@/views/404')
     }]
   },
@@ -53,13 +50,13 @@ export const constantRouterMap = [
     component: Layout,
     children: [{
       path: '',
-      name:'homepage',
-      hidden:true,
+      name: 'homepage',
+      hidden: true,
       component: () => import('@/views/homepage/index'),
       meta: {
         title: "主页",
         icon: "user",
-        affix:true
+        affix: true
       }
     }]
   },
@@ -90,14 +87,13 @@ export const constantRouterMap = [
         }
       }
     ]
-  },
-  {
-    path: '*',
-    redirect: '/404',
-    hidden: true
-  },
+  }
 ]
-
+export const notFoundRouter = [{
+  path: '*',
+  redirect: '/404',
+  hidden: true
+}, ]
 export default new Router({
   // mode: 'history', //后端支持可开
   scrollBehavior: () => ({

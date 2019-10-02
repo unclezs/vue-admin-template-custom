@@ -13,7 +13,7 @@ router.beforeEach((to, from, next) => {
       next({ path: '/' })
     } else {
       if (store.getters.name.length === 0) {
-        store.dispatch('GetInfo').then(res => { // 拉取用户信息
+        store.dispatch('GetInfo').then(() => { // 拉取用户信息
           router.addRoutes(store.getters.routers)//添加后台路由表
           next({ ...to, replace: true })
         }).catch(e => {

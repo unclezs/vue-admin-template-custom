@@ -10,7 +10,8 @@ import {
 } from '@/utils/auth'
 import routerFormat from '@/utils/router'
 import {
-  constantRouterMap
+  constantRouterMap,
+  notFoundRouter
 } from '@/router';
 const user = {
   state: {
@@ -37,7 +38,7 @@ const user = {
     },
     SET_ROUTERS: (state, routers) => {
       state.addRouters = routers; //路由访问
-      state.routers = constantRouterMap.concat(routers); //菜单显示
+      state.routers = constantRouterMap.concat(routers).concat(notFoundRouter); //菜单显示,404最后加入
     },
     LOGOUT: (state) => {
       state.addRouters = [];
